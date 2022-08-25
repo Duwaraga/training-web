@@ -5,7 +5,6 @@ import IconButton from "@mui/material/IconButton";
 import DiaryCardBox from "./DiaryCardBox";
 import { Link } from "react-router-dom";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const AddNewCard = () => {
   const paperStyle = {
@@ -19,8 +18,12 @@ const AddNewCard = () => {
   const [titleArray, setTitleArray] = useState([]);
 
   const submitHandler = (e) => {
-    e.preventDefault();
-    titleArray.push({ name: title, description: description });
+    if (titleArray.length === 0) {
+      console.log("No title or No description");
+    } else {
+      e.preventDefault();
+      titleArray.push({ name: title, description: description });
+    }
     let arr = [...titleArray];
     setTitleArray(arr);
 
@@ -55,8 +58,6 @@ const AddNewCard = () => {
                 <NotificationsIcon />
               </div>
             </IconButton>
-
-            <AccountCircleIcon />
           </div>
 
           <div>
@@ -86,7 +87,6 @@ const AddNewCard = () => {
                 label="Description"
                 variant="outlined"
                 required
-                // size="small"
                 fullWidth
                 onChange={(e) => setDescription(e.target.value)}
               />

@@ -14,7 +14,6 @@ const SignIn = () => {
   const avatarStyle = { backgroundColor: "#4f14a6" };
 
   const [random, setRandomName] = useState("");
-  const [error, setError] = useState("");
 
   const randomNameHandler = () => {
     var text = "";
