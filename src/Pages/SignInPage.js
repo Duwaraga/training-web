@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, Paper, Avatar, TextField } from "@material-ui/core";
+import { Paper, Avatar, TextField, Grid } from "@material-ui/core";
 import FilterVintageRoundedIcon from "@mui/icons-material/FilterVintageRounded";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
@@ -52,8 +52,7 @@ const SignIn = () => {
         />
 
         <Button variant="contained" color="primary" onClick={randomNameHandler}>
-          {" "}
-          Random{" "}
+          Random
         </Button>
         <div>
           <div>

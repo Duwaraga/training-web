@@ -18,12 +18,12 @@ const AddNewCard = () => {
   const [titleArray, setTitleArray] = useState([]);
 
   const submitHandler = (e) => {
-    if (titleArray.length === 0) {
-      console.log("No title or No description");
-    } else {
-      e.preventDefault();
-      titleArray.push({ name: title, description: description });
-    }
+    // if (titleArray.length === 0) {
+    //   console.log("No title or No description");
+    // } else {
+    e.preventDefault();
+    titleArray.push({ name: title, description: description });
+    // }
     let arr = [...titleArray];
     setTitleArray(arr);
 
@@ -35,81 +35,79 @@ const AddNewCard = () => {
 
   return (
     <Container>
-      <form>
-        <Paper elevation={10} style={paperStyle}>
-          <div style={{ textAlign: "right" }}>
-            <Link to="/">
-              <Button
-                style={{ alignItems: "left" }}
-                variant="contained"
-                color="secondary"
-              >
-                {" "}
-                Logout{" "}
-              </Button>
-            </Link>
-
-            <IconButton
-              color="inherit"
-              aria-label="notifications"
-              alignItems="left"
+      <Paper elevation={10} style={paperStyle}>
+        <div style={{ textAlign: "right" }}>
+          <Link to="/">
+            <Button
+              style={{ alignItems: "left" }}
+              variant="contained"
+              color="secondary"
             >
-              <div>
-                <NotificationsIcon />
-              </div>
-            </IconButton>
-          </div>
+              {" "}
+              Logout{" "}
+            </Button>
+          </Link>
 
-          <div>
-            <h1>Dear Diary</h1>
-          </div>
-
-          <TextField
-            className="Title"
-            style={{ marginRight: "5px", marginBottom: "5px" }}
-            id="title"
-            label="Title"
-            variant="outlined"
-            required
-            size="small"
-            fullWidth
-            onChange={(e) => setTitle(e.target.value)}
-          />
-
-          <div>
+          <IconButton
+            color="inherit"
+            aria-label="notifications"
+            alignItems="left"
+          >
             <div>
-              <TextField
-                className="Description"
-                // style={{ marginRight: "5px", marginBottom: "5px" }}
-                multiline
-                rows={4}
-                id="description"
-                label="Description"
-                variant="outlined"
-                required
-                fullWidth
-                onChange={(e) => setDescription(e.target.value)}
-              />
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                onClick={submitHandler}
-              >
-                Add
-              </Button>
+              <NotificationsIcon />
             </div>
-          </div>
+          </IconButton>
+        </div>
 
-          <Grid container spacing={2}>
-            {titleArray.map((e) => (
-              <Grid xs={3}>
-                <DiaryCardBox name={e.name} description={e.description} />
-              </Grid>
-            ))}
-          </Grid>
-        </Paper>
-      </form>
+        <div>
+          <h1>Dear Diary</h1>
+        </div>
+
+        <TextField
+          className="Title"
+          style={{ marginRight: "5px", marginBottom: "5px" }}
+          id="title"
+          label="Title"
+          variant="outlined"
+          required
+          size="small"
+          fullWidth
+          onChange={(e) => setTitle(e.target.value)}
+        />
+
+        <div>
+          <div>
+            <TextField
+              className="Description"
+              // style={{ marginRight: "5px", marginBottom: "5px" }}
+              multiline
+              rows={4}
+              id="description"
+              label="Description"
+              variant="outlined"
+              required
+              fullWidth
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              onClick={submitHandler}
+            >
+              Add
+            </Button>
+          </div>
+        </div>
+
+        <Grid container spacing={2}>
+          {titleArray.map((e) => (
+            <Grid xs={3}>
+              <DiaryCardBox name={e.name} description={e.description} />
+            </Grid>
+          ))}
+        </Grid>
+      </Paper>
     </Container>
   );
 };
