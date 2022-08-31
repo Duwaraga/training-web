@@ -12,19 +12,19 @@ function DiaryCardBox({ title, name, description }) {
     height: "100%",
     width: "100%",
   };
-  const isSeeMore = false;
-  const needSeeMore = description.length > 100;
-  const [bodyContent, setBodyContent] = useState(
-    needSeeMore ? description.slice(0, 100) + "..." : description
-  );
-  const [isSeeMoreShown, setIsSeeMoreShown] = useState(isSeeMore);
+  // const isSeeMore = false;
+  // const needSeeMore = description > 100;
+  // const [bodyContent, setBodyContent] = useState(
+  //   needSeeMore ? description.slice(0, 100) + "..." : description
+  // );
+  // const [isSeeMoreShown, setIsSeeMoreShown] = useState(isSeeMore);
 
-  const onSeeMoreClick = () => {
-    if (isSeeMoreShown && needSeeMore) {
-      setBodyContent(description.slice(0, 100) + "...");
-    } else setBodyContent(description);
-    setIsSeeMoreShown(!isSeeMoreShown);
-  };
+  // const onSeeMoreClick = () => {
+  //   if (isSeeMoreShown && needSeeMore) {
+  //     setBodyContent(description.slice(0, 100) + "...");
+  //   } else setBodyContent(description);
+  //   setIsSeeMoreShown(!isSeeMoreShown);
+  // };
 
   return (
     // ===================================================================
@@ -42,13 +42,13 @@ function DiaryCardBox({ title, name, description }) {
         <div className={"hr"} />
         <Card.Body>
         <div><Divider textAlign="left">Description</Divider></div>
-          <Row>
+          {/* <Row>
             <Col>{bodyContent}</Col>
-          </Row>
+          </Row> */}
           <Row>
-            <Col className={"see-more"} onClick={() => onSeeMoreClick()}>
+            {/* <Col className={"see-more"} onClick={() => onSeeMoreClick()}>
               {needSeeMore ? (isSeeMoreShown ? "See less" : "See more") : ""}
-            </Col>
+            </Col> */}
           </Row>
         </Card.Body>
       </Card>

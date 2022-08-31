@@ -1,6 +1,6 @@
 import "./App.css";
-import SignIn from "./Pages/SignInPage";
-import AddNewCard from "./Components/AddNewCard";
+import SignIn from "../SignInPage";
+import AddNewCard from "../../Components/AddNewCard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SignIn />} />
-        <Route path="/card" element={<AddNewCard />} />
+        <Route path="/todo" element={<AddNewCard />} />
       </Routes>
     </BrowserRouter>
   );
